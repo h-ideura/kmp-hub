@@ -26,3 +26,7 @@ https://github.com/terrakok/kmp-awesome
 
 ### CMPサンプル集（JetBrains公式）
 https://github.com/JetBrains/compose-multiplatform/tree/master/examples
+
+## PeopleInSpace
+Android,iOSのネイティブUIだけでなく、ウィジェット、デスクトップなどを含んだマルチモジュール構成のサンプルプロジェクト
+https://github.com/joreilly/PeopleInSpace
