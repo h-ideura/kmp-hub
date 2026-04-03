@@ -10,9 +10,17 @@ KMPのサンプル集
 https://kmp.jetbrains.com/
 
 ### KMP Wizard(terrakok製)
-非公式のterrakok製Wizard。  
-公式のものよりより詳細にライブラリ追加なども行えるが、作成したものが動かないことも有。  
+非公式のterrakok製Wizard。ライブラリ追加なども行える。 
 https://terrakok.github.io/kmp-web-wizard/
+
+## ライブラリ
+### KMPライブラリカタログ(Kotlin公式)
+KMPで利用できるライブラリのカタログ。
+https://klibs.io/
+
+### KMP Awesome
+KMPで利用できる・よく使用されているライブラリがまとまっている
+https://github.com/terrakok/kmp-awesome
 
 ## サンプルプロジェクト
 
