@@ -1,28 +1,28 @@
 import SwiftUI
 import Shared
 
-struct ContentView: View {
-    @State private var showContent = false
-    var body: some View {
-        VStack {
-            Button("Click me!") {
-                withAnimation {
-                    showContent = !showContent
-                }
-            }
+struct UserListView: UIViewControllerRepresentable {
+    let users: [String]
 
-            if showContent {
-                VStack(spacing: 16) {
-                    Image(systemName: "swift")
-                        .font(.system(size: 200))
-                        .foregroundColor(.accentColor)
-                    Text("SwiftUI: \(Greeting().greet())")
-                }
-                .transition(.move(edge: .top).combined(with: .opacity))
+    func makeUIViewController(context: Context) -> UIViewController {
+        PlatformViewControllerKt.UserListViewController(users: users)
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+}
+
+struct ContentView: View {
+    let sampleUsers = ["iOS User A", "iOS User B", "iOS User C"]
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                UserListView(users: sampleUsers)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+            .navigationTitle("User List (SwiftUI)")
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding()
     }
 }
 
