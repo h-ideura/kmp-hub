@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -6,6 +5,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.metro)
 }
 
 kotlin {
@@ -39,9 +40,16 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            implementation(libs.navigation.compose)
+            implementation(libs.kotlinx.serialization.json)
+            
+            implementation(project(":feature:list"))
+            implementation(project(":feature:detail"))
+            implementation(project(":data"))
+            implementation(project(":domain"))
+            implementation(project(":core:model"))
+
+            implementation(libs.metro.runtime)
         }
     }
 }
@@ -76,4 +84,3 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
-

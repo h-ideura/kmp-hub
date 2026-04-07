@@ -3,23 +3,17 @@ package jp.hiroyuki.ideura.metro_sample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import jp.hiroyuki.ideura.metro_sample.di.AppGraph
+import dev.zacsweers.metro.createGraph
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
+        val graph = createGraph<AppGraph>()
+
         setContent {
-            App()
+            App(graph = graph)
         }
     }
-}
-
-@Preview
-@Composable
-fun AppAndroidPreview() {
-    App()
 }
