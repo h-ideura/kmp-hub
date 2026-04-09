@@ -1,5 +1,7 @@
 # Samples
 
+[English](README.en.md) · 日本語
+
 このディレクトリには、Kotlin Multiplatform (KMP) や Compose Multiplatform (CMP) の様々な実装例が含まれています。
 
 ## サンプルプロジェクト一覧
