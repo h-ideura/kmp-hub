@@ -18,13 +18,13 @@ This project is a sample that demonstrates how to use Compose Multiplatform (CMP
 
 ## Project structure
 
-* [/composeApp](./composeApp/src) — Android application code.
+* [/composeApp](./composeApp) — Android application code.
   - Android also manages state in `MainActivity` and calls the shared `UserList`.
-* [/iosApp](./iosApp/iosApp) — iOS application (SwiftUI); entry point for calling CMP components.
+* [/iosApp](./iosApp) — iOS application (SwiftUI); entry point for calling CMP components.
   - `ContentView.swift` loads `UserList` through `UIViewControllerRepresentable`.
-* [/shared](./shared/src) — Code shared across targets.
-  - [commonMain](./shared/src/commonMain/kotlin) — shared Compose UI (`UserList.kt`).
-  - [iosMain](./shared/src/iosMain/kotlin) — wrapper (`PlatformViewController.kt`) that bridges updates from SwiftUI’s `updateUIViewController` into Compose state.
+* [/shared](./shared) — Code shared across targets.
+  - [commonMain](./shared/src/commonMain) — shared Compose UI (`UserList.kt`).
+  - [iosMain](./shared/src/iosMain) — wrapper (`PlatformViewController.kt`) that bridges updates from SwiftUI’s `updateUIViewController` into Compose state.
 
 ### Run the Android app
 - `./gradlew :composeApp:assembleDebug`
