@@ -1,0 +1,7 @@
+metro-sample:
+  - changed-files:
+      - any-glob-to-any-file: samples/metro-sample/**/*
+
+cmp-swift-sample:
+  - changed-files:
+      - any-glob-to-any-file: samples/cmp-swift-sample/**/*
