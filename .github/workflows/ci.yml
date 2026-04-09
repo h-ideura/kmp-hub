@@ -2,6 +2,8 @@ name: CI
 
 # 新規 samples/<name> 追加時: changes.filters と末尾の呼び出しジョブを増やす。
 # push は main のみ（feature ブランチは pull_request で1回だけ走らせる）。
+# 各プロジェクトの README / README.en.md のみの変更では paths-filter が該当サンプルを
+# 真にしないため、Gradle ジョブはスキップされる（changes ジョブのみ実行）。
 
 on:
   push:
@@ -30,8 +32,12 @@ jobs:
           filters: |
             metro-sample:
               - 'samples/metro-sample/**'
+              - '!samples/metro-sample/**/README.md'
+              - '!samples/metro-sample/**/README.en.md'
             cmp-swift-sample:
               - 'samples/cmp-swift-sample/**'
+              - '!samples/cmp-swift-sample/**/README.md'
+              - '!samples/cmp-swift-sample/**/README.en.md'
             workflow:
               - '.github/workflows/**'
 

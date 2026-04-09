@@ -1,5 +1,7 @@
 # metro-sample
 
+[English](README.en.md) · 日本語
+
 [Metro DI](https://github.com/ZacSweers/metro) を使用した Compose Multiplatform (CMP) サンプルアプリです。
 
 ## 概要

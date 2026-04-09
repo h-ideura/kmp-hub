@@ -1,5 +1,7 @@
 # cmp-swift-sample
 
+[English](README.en.md) · 日本語
+
 このプロジェクトは、Compose Multiplatform (CMP) のコンポーネントを SwiftUI から利用する場合の実装例を集めたサンプルプロジェクトです。
 
 ## 特徴
@@ -16,13 +18,13 @@
 
 ## プロジェクト構造
 
-* [/composeApp](./composeApp/src) は Android アプリケーション用のコードが含まれています。
+* [/composeApp](./composeApp) は Android アプリケーション用のコードが含まれています。
   - Android 側でも `MainActivity` で状態を管理し、共有の `UserList` を呼び出しています。
-* [/iosApp](./iosApp/iosApp) は iOS アプリケーション（SwiftUI）が含まれています。CMP のコンポーネントを呼び出すエントリポイントです。
+* [/iosApp](./iosApp) は iOS アプリケーション（SwiftUI）が含まれています。CMP のコンポーネントを呼び出すエントリポイントです。
   - `ContentView.swift` で `UIViewControllerRepresentable` を介して `UserList` を呼び出しています。
-* [/shared](./shared/src) は全ターゲット間で共有されるコードが含まれています。
-  - [commonMain](./shared/src/commonMain/kotlin) に共有の Compose UI (`UserList.kt`) が実装されています。
-  - [iosMain](./shared/src/iosMain/kotlin) に SwiftUI の `updateUIViewController` からの更新を受け取り、Compose の状態にブリッジするためのラッパー (`PlatformViewController.kt`) が含まれています。
+* [/shared](./shared) は全ターゲット間で共有されるコードが含まれています。
+  - [commonMain](./shared/src/commonMain) に共有の Compose UI (`UserList.kt`) が実装されています。
+  - [iosMain](./shared/src/iosMain) に SwiftUI の `updateUIViewController` からの更新を受け取り、Compose の状態にブリッジするためのラッパー (`PlatformViewController.kt`) が含まれています。
 
 ### Android アプリの実行
 - `./gradlew :composeApp:assembleDebug`
