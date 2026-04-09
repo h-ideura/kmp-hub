@@ -1,0 +1,49 @@
+name: Gradle (KMP / Android on Linux)
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: Repository-relative Gradle project root (e.g. samples/foo)
+        required: true
+        type: string
+      gradle-arguments:
+        description: Arguments passed to ./gradlew (omit leading ./gradlew)
+        required: false
+        type: string
+        default: assembleDebug
+
+jobs:
+  gradle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platform-tools
+            platforms;android-36
+            build-tools;36.0.0
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          build-root-directory: ${{ inputs.working-directory }}
+
+      - name: Gradle ${{ inputs.gradle-arguments }}
+        run: |
+          chmod +x gradlew
+          ./gradlew ${{ inputs.gradle-arguments }}

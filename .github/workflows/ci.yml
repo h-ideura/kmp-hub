@@ -1,0 +1,47 @@
+name: CI
+
+# 新規 samples/<name> 追加時: changes.filters と末尾の呼び出しジョブを増やす。
+
+on:
+  push:
+    paths:
+      - "samples/**"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "samples/**"
+      - ".github/workflows/**"
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      metro-sample: ${{ steps.filter.outputs.metro-sample }}
+      cmp-swift-sample: ${{ steps.filter.outputs.cmp-swift-sample }}
+      workflow: ${{ steps.filter.outputs.workflow }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            metro-sample:
+              - 'samples/metro-sample/**'
+            cmp-swift-sample:
+              - 'samples/cmp-swift-sample/**'
+            workflow:
+              - '.github/workflows/**'
+
+  metro-sample:
+    needs: changes
+    if: needs.changes.outputs.metro-sample == 'true' || needs.changes.outputs.workflow == 'true'
+    uses: ./.github/workflows/gradle-kmp-ci-reusable.yml
+    with:
+      working-directory: samples/metro-sample
+
+  cmp-swift-sample:
+    needs: changes
+    if: needs.changes.outputs.cmp-swift-sample == 'true' || needs.changes.outputs.workflow == 'true'
+    uses: ./.github/workflows/gradle-kmp-ci-reusable.yml
+    with:
+      working-directory: samples/cmp-swift-sample

@@ -52,6 +52,10 @@ https://github.com/joreilly/PeopleInSpace
 - **ラベルの付与**
     - 各サンプルのPRを後から見返せるよう、サンプルごとの実装（Renovateによる更新含む）には適切なラベルを付与することを原則とします。
     - GitHub Actionsの `labeler` を導入しているため、自動ラベル機能が使えます。新しいサンプルを追加した際は、そのサンプルのラベルと`.github/labeler.yml` に設定を追加してください。
+- **CI（GitHub Actions）**
+    - `samples/` 配下または `.github/workflows/` の変更で `.github/workflows/ci.yml` が動きます。変更のあったサンプルだけ Gradle を実行し、ワークフロー定義を変えたときは全サンプルをビルドします。
+    - 実処理は再利用ワークフロー `.github/workflows/gradle-kmp-ci-reusable.yml` にまとめています。Ubuntu 上で JDK と Android SDK をセットアップし、各プロジェクトのルートで `./gradlew assembleDebug` を実行します（iOS 向けのビルドやテストは実行しません）。
+    - 新しいサンプルを `samples/<名前>/` に追加したら、`.github/workflows/ci.yml` のパスフィルタと、そのサンプルを呼び出すジョブを追加してください（`ci.yml` 先頭のコメントも参照）。
 
 ## メンテナンスに関して
 - 誰でもいつでもok
