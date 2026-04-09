@@ -28,7 +28,8 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          # Metro Gradle plugin 0.13+ requires JVM 21 for the build classpath.
+          java-version: 21
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
