@@ -1,5 +1,7 @@
 # cmp-swift-sample
 
+[English](README.en.md) · 日本語
+
 このプロジェクトは、Compose Multiplatform (CMP) のコンポーネントを SwiftUI から利用する場合の実装例を集めたサンプルプロジェクトです。
 
 ## 特徴
