@@ -1,9 +1,12 @@
 name: CI
 
 # 新規 samples/<name> 追加時: changes.filters と末尾の呼び出しジョブを増やす。
+# push は main のみ（feature ブランチは pull_request で1回だけ走らせる）。
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "samples/**"
       - ".github/workflows/**"
