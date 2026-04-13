@@ -2,6 +2,7 @@ package jp.hiroyuki.ideura.metro_sample
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -11,6 +12,7 @@ import androidx.savedstate.serialization.SavedStateConfiguration
 import jp.hiroyuki.ideura.metro_sample.feature.list.ListScreen
 import jp.hiroyuki.ideura.metro_sample.feature.detail.DetailScreen
 import jp.hiroyuki.ideura.metro_sample.di.AppGraph
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
@@ -25,11 +27,11 @@ object List : Route
 @Serializable
 data class Detail(val login: String) : Route
 
+@OptIn(ExperimentalSerializationApi::class)
 private val config = SavedStateConfiguration {
     serializersModule = SerializersModule {
         polymorphic(NavKey::class) {
-            subclass(List::class)
-            subclass(Detail::class)
+            subclassesOfSealed(Route.serializer())
         }
     }
 }
