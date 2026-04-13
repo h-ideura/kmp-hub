@@ -2,21 +2,17 @@ package jp.hiroyuki.ideura.metro_sample
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.saveable.rememberSerializable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
-import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import androidx.savedstate.serialization.SavedStateConfiguration
+import androidx.savedstate.compose.serialization.serializers.SnapshotStateListSerializer
 import jp.hiroyuki.ideura.metro_sample.feature.list.ListScreen
 import jp.hiroyuki.ideura.metro_sample.feature.detail.DetailScreen
 import jp.hiroyuki.ideura.metro_sample.di.AppGraph
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.polymorphic
-import kotlinx.serialization.modules.subclass
 
 @Serializable
 sealed interface Route : NavKey
@@ -27,19 +23,15 @@ object List : Route
 @Serializable
 data class Detail(val login: String) : Route
 
-@OptIn(ExperimentalSerializationApi::class)
-private val config = SavedStateConfiguration {
-    serializersModule = SerializersModule {
-        polymorphic(NavKey::class) {
-            subclassesOfSealed<Route>()
-        }
-    }
-}
+
 
 @Composable
 fun App(graph: AppGraph) {
     MaterialTheme {
-        val backStack = rememberNavBackStack(config, List)
+        val backStack: MutableList<Route> =
+            rememberSerializable(serializer = SnapshotStateListSerializer()) {
+                mutableStateListOf(List)
+            }
 
         val entryProvider = entryProvider<NavKey> {
             entry<List> {
