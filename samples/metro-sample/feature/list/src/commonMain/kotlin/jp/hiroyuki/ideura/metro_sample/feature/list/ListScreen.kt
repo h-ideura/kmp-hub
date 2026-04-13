@@ -10,12 +10,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import dev.zacsweers.metrox.viewmodel.metroViewModel
 import jp.hiroyuki.ideura.metro_sample.core.model.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ListScreen(
-    viewModel: ListViewModel,
+    viewModel: ListViewModel = metroViewModel(),
     onUserClick: (String) -> Unit
 ) {
     val users by viewModel.users.collectAsState()

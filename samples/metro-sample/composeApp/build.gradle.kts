@@ -51,6 +51,7 @@ kotlin {
             implementation(project(":core:model"))
 
             implementation(libs.metro.runtime)
+            implementation(libs.metrox.viewmodel.compose)
         }
     }
 }

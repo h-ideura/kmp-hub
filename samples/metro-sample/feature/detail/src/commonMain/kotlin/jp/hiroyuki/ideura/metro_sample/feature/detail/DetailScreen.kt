@@ -9,11 +9,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
+import dev.zacsweers.metrox.viewmodel.metroViewModel
 import jp.hiroyuki.ideura.metro_sample.core.model.UserDetail
 
 @Composable
 fun DetailScreen(
-    viewModel: DetailViewModel,
+    viewModel: DetailViewModel = metroViewModel(),
     login: String,
     onBack: () -> Unit
 ) {
