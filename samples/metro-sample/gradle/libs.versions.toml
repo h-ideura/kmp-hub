@@ -20,8 +20,9 @@ metro = "0.13.2"
 
 ktor = "3.4.2"
 coroutines = "1.10.2"
-serialization = "1.10.0"
+serialization = "1.11.0"
 navigation-compose = "2.9.2"
+navigation3 = "1.0.0-alpha06"
 coil = "3.4.0"
 
 [libraries]
@@ -45,6 +46,8 @@ compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-previ
 
 # Navigation Compose
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "navigation3" }
+androidx-lifecycle-viewmodel-navigation3 = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "androidx-lifecycle" }
 
 # Metro DI
 metro-runtime = { module = "dev.zacsweers.metro:runtime", version.ref = "metro" }
