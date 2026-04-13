@@ -31,7 +31,7 @@ data class Detail(val login: String) : Route
 private val config = SavedStateConfiguration {
     serializersModule = SerializersModule {
         polymorphic(NavKey::class) {
-            subclassesOfSealed(Route.serializer())
+            subclassesOfSealed<Route>()
         }
     }
 }
