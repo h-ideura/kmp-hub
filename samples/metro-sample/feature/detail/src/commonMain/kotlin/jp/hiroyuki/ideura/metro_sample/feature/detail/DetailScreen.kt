@@ -54,30 +54,33 @@ fun DetailContent(
         Box(modifier = Modifier.padding(padding).fillMaxSize()) {
             if (isLoading && user == null) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-            } else {
-                user?.let { u ->
-                    Column(
-                        modifier = Modifier.fillMaxSize().padding(16.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        AsyncImage(
-                            model = u.avatarUrl,
-                            contentDescription = null,
-                            modifier = Modifier.size(120.dp)
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Text(text = u.name ?: u.login, style = MaterialTheme.typography.headlineMedium)
-                        u.bio?.let {
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Text(text = it)
-                        }
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                            Text("Followers: ${u.followers}")
-                            Text("Following: ${u.following}")
-                        }
+            } else if (user != null) {
+                Column(
+                    modifier = Modifier.fillMaxSize().padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    AsyncImage(
+                        model = user.avatarUrl,
+                        contentDescription = null,
+                        modifier = Modifier.size(120.dp)
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(text = user.name ?: user.login, style = MaterialTheme.typography.headlineMedium)
+                    user.bio?.let {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(text = it)
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                        Text("Followers: ${user.followers}")
+                        Text("Following: ${user.following}")
                     }
                 }
+            } else {
+                Text(
+                    text = "Unknown user",
+                    modifier = Modifier.align(Alignment.Center)
+                )
             }
         }
     }
@@ -100,6 +103,19 @@ fun DetailScreenPreview() {
                 followers = 23784,
                 following = 11
             ),
+            isLoading = false,
+            onBack = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+fun DetailScreenUnknownPreview() {
+    MaterialTheme {
+        DetailContent(
+            login = "unknown",
+            user = null,
             isLoading = false,
             onBack = {}
         )

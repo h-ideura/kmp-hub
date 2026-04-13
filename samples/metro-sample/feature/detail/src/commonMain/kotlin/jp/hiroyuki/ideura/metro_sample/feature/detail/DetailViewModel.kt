@@ -35,6 +35,7 @@ class DetailViewModel(
             try {
                 _user.value = userRepository.getUserDetail(login)
             } catch (e: Exception) {
+                _user.value = null
                 e.printStackTrace()
             } finally {
                 _isLoading.value = false
