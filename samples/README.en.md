@@ -8,5 +8,5 @@ This directory contains various Kotlin Multiplatform (KMP) and Compose Multiplat
 
 | Project | Summary | Main stack |
 | :--- | :--- | :--- |
-| [metro-sample](./metro-sample/README.en.md) | Multi-module GitHub API sample app using Metro DI | Compose Multiplatform, Metro, Ktor, Type-safe Navigation |
+| [metro-sample](./metro-sample/README.en.md) | Multi-module GitHub API sample app using Metro DI | Compose Multiplatform, Metro, Ktor, Navigation3 (nav3) |
 | [cmp-swift-sample](./cmp-swift-sample/README.en.md) | Using Compose Multiplatform components from SwiftUI | Compose Multiplatform, SwiftUI Interop |

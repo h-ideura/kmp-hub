@@ -16,7 +16,7 @@ It uses [Metro](https://github.com/ZacSweers/metro) by Zac Sweers as the depende
 - **Networking**: Ktor Client
 - **Serialization**: Kotlinx Serialization (JSON)
 - **Architecture**: Multi-module, MVVM
-- **Navigation**: Type-safe Jetpack Navigation (Compose Multiplatform)
+- **Navigation**: Navigation3 (Type-safe Compose Multiplatform Navigation)
 - **Image Loading**: Coil3
 - **Concurrency**: Kotlin Coroutines & Flow
 
