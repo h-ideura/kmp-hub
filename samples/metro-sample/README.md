@@ -15,6 +15,7 @@ DI (Dependency Injection) ライブラリとして、Zac Sweers 氏による [Me
 - **Serialization**: Kotlinx Serialization (JSON)
 - **Architecture**: Multi-module, MVVM
 - **Navigation**: Type-safe Jetpack Navigation (Compose Multiplatform)
+- **Image Loading**: Coil3
 - **Concurrency**: Kotlin Coroutines & Flow
 
 ## プロジェクト構成
@@ -35,14 +36,4 @@ Metro を使用して、各モジュール間で依存関係を管理してい�
 - `@ContributesTo`: モジュールを DI グラフに追加 (`DataModule` など)。
 - `@Inject`: 依存関係の注入。
 - `@Provides`: インスタンスの生成方法を定義。
-
-## 実装状況
-- [x] プロジェクト構成のセットアップ
-- [x] Metro DI の導入
-- [x] GitHub API を使用したデータ取得 (Ktor)
-- [x] ユーザー一覧画面の実装
-- [x] ユーザー詳細画面の実装
-- [x] Type-safe Navigation の導入
-- [ ] Metrox ViewModel の導入
-- [ ] エラーハンドリングの強化
-- [ ] ユニットテストの追加
+- `Metrox ViewModel`: Metro と連携した ViewModel の注入 (`metroViewModel()`)。

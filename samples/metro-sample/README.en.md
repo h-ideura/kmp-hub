@@ -17,6 +17,7 @@ It uses [Metro](https://github.com/ZacSweers/metro) by Zac Sweers as the depende
 - **Serialization**: Kotlinx Serialization (JSON)
 - **Architecture**: Multi-module, MVVM
 - **Navigation**: Type-safe Jetpack Navigation (Compose Multiplatform)
+- **Image Loading**: Coil3
 - **Concurrency**: Kotlin Coroutines & Flow
 
 ## Project structure
@@ -39,15 +40,4 @@ Metro wires dependencies across modules.
 - `@ContributesTo`: Adds a module to the DI graph (e.g. `DataModule`).
 - `@Inject`: Dependency injection.
 - `@Provides`: Defines how instances are created.
-
-## Implementation status
-
-- [x] Project structure setup
-- [x] Metro DI integration
-- [x] Data fetching with GitHub API (Ktor)
-- [x] User list screen
-- [x] User detail screen
-- [x] Type-safe Navigation
-- [ ] Metrox ViewModel integration
-- [ ] Stronger error handling
-- [ ] Unit tests
+- `Metrox ViewModel`: Integration with Metro for ViewModel injection (`metroViewModel()`).
