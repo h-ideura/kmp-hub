@@ -30,9 +30,13 @@ https://github.com/terrakok/kmp-awesome
 ### CMPサンプル集（JetBrains公式）
 https://github.com/JetBrains/compose-multiplatform/tree/master/examples
 
-## PeopleInSpace
+### PeopleInSpace
 Android,iOSのネイティブUIだけでなく、ウィジェット、デスクトップなどを含んだマルチモジュール構成のサンプルプロジェクト  
 https://github.com/joreilly/PeopleInSpace
+
+### Amper(Experimental)
+Amper(Gradleの代替として開発が進んでいる設定が簡単なビルドツール)を使った例
+https://github.com/JetBrains/amper/tree/release/0.10/examples/compose-multiplatform
 
 # 開発者向け情報
 
