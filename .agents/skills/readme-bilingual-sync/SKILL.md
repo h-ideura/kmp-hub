@@ -86,9 +86,7 @@ description: >-
 
 ## リポジトリ内での配置
 
-このスキルは本リポジトリの `.cursor/skills/readme-bilingual-sync/SKILL.md` に置いてある。Cursor はプロジェクトの `.cursor/skills/` を参照するため、クローン後すぐにチームで共有できる。
-
-Claude Code でプロジェクトの `.claude/skills/` だけを読む場合は、同じ内容を `readme-bilingual-sync/SKILL.md` としてコピーするか、シンボリックリンクで指す。
+このスキルは本リポジトリの `.agents/skills/readme-bilingual-sync/SKILL.md` に配置されている。
 
 ## 参照コマンド例（エージェント用）
 
