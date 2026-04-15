@@ -9,37 +9,35 @@ A personal collection of Kotlin Multiplatform (KMP) samples for learning and ref
 ## Wizard
 
 ### KMP Wizard (JetBrains official)
-
 The official wizard. You can scaffold KMP projects.  
 https://kmp.jetbrains.com/
 
 ### KMP Wizard (by terrakok)
-
 An unofficial wizard by terrakok. You can also add libraries.  
 https://terrakok.github.io/kmp-web-wizard/
 
 ## Libraries
 
 ### KMP Library Catalog (Kotlin official)
-
 A catalog of libraries you can use with KMP.  
 https://klibs.io/
 
 ### KMP Awesome
-
 A curated list of libraries commonly used with KMP.  
 https://github.com/terrakok/kmp-awesome
 
 ## Sample projects
 
 ### CMP samples (JetBrains official)
-
 https://github.com/JetBrains/compose-multiplatform/tree/master/examples
 
-## PeopleInSpace
-
+### PeopleInSpace
 A multi-module sample that includes Android and iOS native UI, widgets, desktop, and more.  
 https://github.com/joreilly/PeopleInSpace
+
+### Amper (Experimental)
+An example using Amper (a build tool being developed as a simpler alternative to Gradle).
+https://github.com/JetBrains/amper/tree/release/0.10/examples/compose-multiplatform
 
 # For contributors
 
@@ -68,6 +66,5 @@ https://github.com/joreilly/PeopleInSpace
   - When you add a new sample under `samples/<name>/`, update the path filters and jobs in `.github/workflows/ci.yml` (see the comments at the top of `ci.yml`).
 
 ## Maintenance
-
 - Anyone may contribute anytime.
 - There is also periodic maintenance.
