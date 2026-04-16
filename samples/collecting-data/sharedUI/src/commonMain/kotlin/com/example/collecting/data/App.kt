@@ -7,7 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontFamily
@@ -57,7 +57,7 @@ fun App(
             modifier = Modifier
                 .size(250.dp)
                 .padding(16.dp)
-                .run { rotate(rotate.value) },
+                .graphicsLayer { rotationZ = rotate.value },
             imageVector = vectorResource(Res.drawable.ic_cyclone),
             colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
             contentDescription = null
