@@ -1,34 +1,36 @@
 package com.example.collecting.data.androidApp
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.platform.LocalView
-import androidx.core.view.WindowInsetsControllerCompat
-import com.example.collecting.data.App
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import com.example.collecting.data.uicomponents.DesignSystemComponentData
+import com.example.collecting.data.uicomponents.gallery.GalleryScreen
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.DependencyGraph
+import dev.zacsweers.metro.createGraph
 
 class AppActivity : ComponentActivity() {
+    private val appGraph: AppGraph by lazy { createGraph() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { 
-            App(onThemeChanged = { ThemeChanged(it) }) 
+        setContent {
+            MaterialTheme {
+                Surface {
+                    GalleryScreen(
+                        components = appGraph.components,
+                    )
+                }
+            }
         }
     }
 }
 
-@Composable
-private fun ThemeChanged(isDark: Boolean) {
-    val view = LocalView.current
-    LaunchedEffect(isDark) {
-        val window = (view.context as Activity).window
-        WindowInsetsControllerCompat(window, window.decorView).apply {
-            isAppearanceLightStatusBars = isDark
-            isAppearanceLightNavigationBars = isDark
-        }
-    }
+@DependencyGraph(scope = AppScope::class)
+internal interface AppGraph {
+    val components: Set<DesignSystemComponentData>
 }

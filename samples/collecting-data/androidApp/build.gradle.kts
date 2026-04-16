@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.application)
+    alias(libs.plugins.metro)
 }
 
 android {
@@ -31,5 +32,9 @@ kotlin {
 
 dependencies {
     implementation(project(":sharedUI"))
+    implementation(project(":ui-components"))
+    implementation(project(":ui-components:gallery"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:settings"))
     implementation(libs.androidx.activityCompose)
 }

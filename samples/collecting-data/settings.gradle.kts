@@ -29,6 +29,10 @@ dependencyResolutionManagement {
     }
 }
 include(":sharedUI")
+include(":ui-components")
+include(":ui-components:gallery")
+include(":feature:home")
+include(":feature:settings")
 include(":androidApp")
 include(":desktopApp")
 include(":webApp")
