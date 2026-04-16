@@ -33,9 +33,10 @@ fun App(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        val fontFamily = remember { FontFamily(Font(Res.font.IndieFlower_Regular)) }
         Text(
             text = stringResource(Res.string.cyclone),
-            fontFamily = FontFamily(Font(Res.font.IndieFlower_Regular)),
+            fontFamily = fontFamily,
             style = MaterialTheme.typography.displayLarge
         )
 
