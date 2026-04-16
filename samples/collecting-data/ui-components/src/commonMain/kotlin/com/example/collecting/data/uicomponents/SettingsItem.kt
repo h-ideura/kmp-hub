@@ -11,6 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
+import dev.zacsweers.metro.ContributesTo
+import dev.zacsweers.metro.IntoSet
+import dev.zacsweers.metro.Provides
 
 @Composable
 fun SettingsItem(
@@ -41,4 +46,16 @@ fun SettingsItem(
         }
         trailing?.invoke()
     }
+}
+
+@ContributesTo(AppScope::class)
+@BindingContainer
+object SettingsItemModule {
+    @Provides
+    @IntoSet
+    fun provide(): DesignSystemComponentData = DesignSystemComponentData(
+        name = "SettingsItem",
+        type = DesignSystemComponentData.Type.Component,
+        content = { SettingsItem(title = "Title", subtitle = "Subtitle") },
+    )
 }

@@ -13,6 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.collecting.data.uicomponents.DesignSystemComponentData
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
+import dev.zacsweers.metro.ContributesTo
+import dev.zacsweers.metro.IntoSet
+import dev.zacsweers.metro.Provides
 
 @Composable
 fun HomeScreen(
@@ -37,4 +43,16 @@ fun HomeScreen(
             modifier = Modifier.padding(top = 8.dp),
         )
     }
+}
+
+@ContributesTo(AppScope::class)
+@BindingContainer
+object HomeModule {
+    @Provides
+    @IntoSet
+    fun provideHomeScreen(): DesignSystemComponentData = DesignSystemComponentData(
+        name = "HomeScreen",
+        type = DesignSystemComponentData.Type.Screen,
+        content = { HomeScreen() },
+    )
 }

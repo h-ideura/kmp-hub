@@ -15,8 +15,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.collecting.data.uicomponents.DesignSystemComponentData
 import com.example.collecting.data.uicomponents.SectionTitle
 import com.example.collecting.data.uicomponents.SettingsItem
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
+import dev.zacsweers.metro.ContributesTo
+import dev.zacsweers.metro.IntoSet
+import dev.zacsweers.metro.Provides
 
 @Composable
 fun SettingsScreen(
@@ -65,4 +71,16 @@ fun SettingsScreen(
             subtitle = "1.0.0",
         )
     }
+}
+
+@ContributesTo(AppScope::class)
+@BindingContainer
+object SettingsModule {
+    @Provides
+    @IntoSet
+    fun provideSettingsScreen(): DesignSystemComponentData = DesignSystemComponentData(
+        name = "SettingsScreen",
+        type = DesignSystemComponentData.Type.Screen,
+        content = { SettingsScreen(isDark = false, onToggleTheme = {}) },
+    )
 }
