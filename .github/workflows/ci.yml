@@ -23,6 +23,7 @@ jobs:
     outputs:
       metro-sample: ${{ steps.filter.outputs.metro-sample }}
       cmp-swift-sample: ${{ steps.filter.outputs.cmp-swift-sample }}
+      compose-preview-lab-sample: ${{ steps.filter.outputs.compose-preview-lab-sample }}
       workflow: ${{ steps.filter.outputs.workflow }}
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +39,10 @@ jobs:
               - 'samples/cmp-swift-sample/**'
               - '!samples/cmp-swift-sample/**/README.md'
               - '!samples/cmp-swift-sample/**/README.en.md'
+            compose-preview-lab-sample:
+              - 'samples/compose-preview-lab-sample/**'
+              - '!samples/compose-preview-lab-sample/**/README.md'
+              - '!samples/compose-preview-lab-sample/**/README.en.md'
             workflow:
               - '.github/workflows/**'
 
@@ -54,3 +59,10 @@ jobs:
     uses: ./.github/workflows/gradle-kmp-ci-reusable.yml
     with:
       working-directory: samples/cmp-swift-sample
+
+  compose-preview-lab-sample:
+    needs: changes
+    if: needs.changes.outputs.compose-preview-lab-sample == 'true' || needs.changes.outputs.workflow == 'true'
+    uses: ./.github/workflows/gradle-kmp-ci-reusable.yml
+    with:
+      working-directory: samples/compose-preview-lab-sample

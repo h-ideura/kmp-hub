@@ -5,3 +5,7 @@ metro-sample:
 cmp-swift-sample:
   - changed-files:
       - any-glob-to-any-file: samples/cmp-swift-sample/**/*
+
+compose-preview-lab-sample:
+  - changed-files:
+      - any-glob-to-any-file: samples/compose-preview-lab-sample/**/*
