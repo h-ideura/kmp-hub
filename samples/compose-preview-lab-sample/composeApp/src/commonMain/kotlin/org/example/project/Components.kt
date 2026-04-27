@@ -12,6 +12,7 @@ import me.tbsten.compose.preview.lab.field.StringField
 import me.tbsten.compose.preview.lab.field.BooleanField
 import me.tbsten.compose.preview.lab.field.ColorField
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 
 @Composable
 fun MyButton(
@@ -106,7 +107,7 @@ fun MyTextFieldPreview() = PreviewLab {
 @Composable
 fun MyText(
     text: String,
-    style: androidx.compose.ui.text.TextStyle = MaterialTheme.typography.bodyLarge,
+    style: TextStyle = MaterialTheme.typography.bodyLarge,
     color: Color = Color.Unspecified,
 ) {
     Text(
