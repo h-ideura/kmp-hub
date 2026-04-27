@@ -1,0 +1,46 @@
+# Built objects
+*.pyc
+*.class
+
+# Android
+.externalNativeBuild
+.cxx
+/captures
+
+# Gradle
+.gradle
+/build
+gradle-app.setting
+!gradle-wrapper.jar
+.gradle-enterprise
+
+# IntelliJ
+*.iml
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/inspectionProfiles
+.idea/shelf
+.idea/vcs.xml
+.idea/misc.xml
+.idea/sonarlint
+
+# Kotlin
+.kotlin/
+
+# Apple / iOS
+.DS_Store
+*.swp
+*.lock
+iosApp/iosApp.xcworkspace/xcuserdata
+iosApp/iosApp.xcodeproj/project.xcworkspace/xcuserdata
+iosApp/iosApp.xcodeproj/xcuserdata
+iosApp/DerivedData
+iosApp/Pods
+iosApp/build
+
+# Local configuration
+local.properties
