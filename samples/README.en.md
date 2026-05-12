@@ -10,3 +10,4 @@ This directory contains various Kotlin Multiplatform (KMP) and Compose Multiplat
 | :--- | :--- | :--- |
 | [metro-sample](./metro-sample/README.en.md) | Multi-module GitHub API sample app using Metro DI. A similar sample is also available in the official Metro repository ([Link](https://github.com/ZacSweers/metro/tree/main/samples/compose-viewmodels)). | Compose Multiplatform, Metro, Ktor, Navigation3 (nav3) |
 | [cmp-swift-sample](./cmp-swift-sample/README.en.md) | Sample for using Compose Multiplatform components from SwiftUI. | Compose Multiplatform, SwiftUI Interop |
+| [compose-preview-lab-sample](./compose-preview-lab-sample/README.en.md) | Sample project for [Compose Preview Lab](https://github.com/tbsten/compose-preview-lab), a library for interactive component previews in Compose Multiplatform. | Compose Multiplatform, Compose Preview Lab |

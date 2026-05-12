@@ -4,6 +4,14 @@
 
 学習や参考に利用するための個人的なKMPのサンプル集。
 
+# 収録サンプル
+
+このリポジトリに含まれるサンプルの詳細は [samples/README.md](samples/README.md) を参照してください。
+
+- **[metro-sample](samples/metro-sample)**: Metro DI を使用したマルチモジュール GitHub API サンプル。
+- **[cmp-swift-sample](samples/cmp-swift-sample)**: Compose Multiplatform コンポーネントを SwiftUI から利用するサンプル。
+- **[compose-preview-lab-sample](samples/compose-preview-lab-sample)**: Compose Preview Lab を使用したインタラクティブなプレビューのサンプル。
+
 # サンプルリンク集
 
 ## Wizard

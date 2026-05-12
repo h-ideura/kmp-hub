@@ -4,6 +4,14 @@
 
 A personal collection of Kotlin Multiplatform (KMP) samples for learning and reference.
 
+# Included Samples
+
+See [samples/README.en.md](samples/README.en.md) for details of the samples included in this repository.
+
+- **[metro-sample](samples/metro-sample)**: A multi-module GitHub API sample using Metro DI.
+- **[cmp-swift-sample](samples/cmp-swift-sample)**: A sample for using Compose Multiplatform components from SwiftUI.
+- **[compose-preview-lab-sample](samples/compose-preview-lab-sample)**: A sample of interactive previews using Compose Preview Lab.
+
 # Sample links
 
 ## Wizard
