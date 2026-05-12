@@ -1,0 +1,35 @@
+package com.example.collecting.data.uicomponents
+
+import androidx.compose.material3.Switch
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
+import dev.zacsweers.metro.ContributesTo
+import dev.zacsweers.metro.IntoSet
+import dev.zacsweers.metro.Provides
+
+@Composable
+fun AppSwitch(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Switch(
+        checked = checked,
+        onCheckedChange = onCheckedChange,
+        modifier = modifier,
+    )
+}
+
+@ContributesTo(AppScope::class)
+@BindingContainer
+object AppSwitchModule {
+    @Provides
+    @IntoSet
+    fun provide(): DesignSystemComponentData = DesignSystemComponentData(
+        name = "AppSwitch",
+        type = DesignSystemComponentData.Type.Component,
+        content = { AppSwitch(checked = true, onCheckedChange = {}) },
+    )
+}
