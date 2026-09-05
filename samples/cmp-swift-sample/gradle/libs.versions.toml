@@ -1,5 +1,5 @@
 [versions]
-agp = "8.11.2"
+agp = "9.4.0"
 androidx-compose-material-icons = "1.7.8"
 android-compileSdk = "36"
 android-minSdk = "24"
